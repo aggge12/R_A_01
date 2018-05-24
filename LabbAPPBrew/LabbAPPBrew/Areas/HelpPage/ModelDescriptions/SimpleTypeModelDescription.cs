@@ -1,0 +1,6 @@
+namespace LabbAPPBrew.Areas.HelpPage.ModelDescriptions
+{
+    public class SimpleTypeModelDescription : ModelDescription
+    {
+    }
+}
