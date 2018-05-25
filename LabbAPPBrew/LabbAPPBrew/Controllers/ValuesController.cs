@@ -1,10 +1,12 @@
 ﻿using LiteDB;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -64,5 +66,21 @@ namespace LabbAPPBrew.Controllers
         public void Delete(int id)
         {
         }
+        [HttpGet]
+        public async System.Threading.Tasks.Task<JObject> getCatAsync()
+        {
+            HttpClient client = new HttpClient();
+            string path = "https://catfact.ninja/fact";
+            var response =  await client.GetAsync(path);
+            HttpContent content = response.Content;
+            
+            // ... Read the string.
+
+            string result = await content.ReadAsStringAsync();
+            JObject o = JObject.Parse(result);
+            
+            return o;
+        }
+
     }
 }

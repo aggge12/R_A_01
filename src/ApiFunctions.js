@@ -52,3 +52,20 @@ export const loginUser = (uName, pWord) => {
     }
   };
   
+/// EXTERNAL APIS
+
+export const getChuckChuckles = () => {
+  try {
+    return axios.get('https://api.chucknorris.io/jokes/random');
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getCat = () => {
+  try {
+    return axios.get('http://localhost:60332/Values/getCatAsync');
+  } catch (error) {
+    console.error(error);
+  }
+};

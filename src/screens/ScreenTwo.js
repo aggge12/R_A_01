@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {getFavorites} from '../ApiFunctions';
+import ExtApiResult from '../containers/ExtApiResult.js'
 import ListItemFavorites from '../components/ListItemFavorites.js';
 
 class ScreenTwo extends Component {
@@ -52,7 +53,15 @@ CreatePaginationButtons = (listObjectPerPage, totalListed) => {
     let totalobjects = 0;
     let listObjectPerPage = 4; 
     return (
-      <div>
+      <div class="row">
+        <div class="col-sm-3">
+        <br/>
+          <div class="col-sm-6 center">
+            <ExtApiResult/>
+          </div>
+        </div>
+        <br/>
+        <div class="col-sm-6">
         <br/>
         <h3>favoriter</h3>
         <br/>
@@ -82,6 +91,7 @@ CreatePaginationButtons = (listObjectPerPage, totalListed) => {
         :
         ""
         }
+        </div>
         </div>
       </div>
     );

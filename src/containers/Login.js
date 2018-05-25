@@ -33,9 +33,9 @@ class Login extends Component {
     return (
       <div style={{float: "right", margi: '10px'}}>
         username
-        <input onChange={this.onChangeUName} style={{margin: 10}} value={this.state.uName}></input>
+        <input class="niceInput" onChange={this.onChangeUName} style={{margin: 10}} value={this.state.uName}></input>
         password
-        <input onChange={this.onChangePWord} style={{margin: 10}} value={this.state.pWord}></input>
+        <input class="niceInput" onChange={this.onChangePWord} style={{margin: 10}} value={this.state.pWord}></input>
         <button class="linkItem" onClick={this.LoginClicked}>Login</button>
       </div>
     );

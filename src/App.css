@@ -56,6 +56,27 @@
   margin:auto;
 }
 
+.center {
+  margin: auto;
+}
+
+.niceInput{
+  border-radius:4px;
+  border: 2px solid white;;
+}
+.niceInput:hover{
+  border: 2px solid lightblue;
+}
+
+.imageIcon{
+  height: 54px;
+  width: 54px;
+  background: linear-gradient(white, darkgray);
+  padding:2px;
+  border: 1px solid rgb(116, 116, 116);
+  border-bottom: 2px solid rgb(53, 53, 53);
+  border-radius: 10px;
+}
 .linkItem
 {
   color:white;

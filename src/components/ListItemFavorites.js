@@ -23,12 +23,16 @@ class ListItemFavorites extends Component {
     componentDidUpdate() {
             console.log("this.props.data");
             console.log(this.props.data);
-            getProduct(this.props.data.productid).then((response) => {
-                console.log(response);
-                this.setState({ 
-                data: response.data,
+            if (this.props.data.productid !== this.state.data.id)
+            {
+                getProduct(this.props.data.productid).then((response) => {
+                    console.log(response);
+                    this.setState({ 
+                    data: response.data,
+                    })
                 })
-            })
+            }
+
     }
 
     ButtonClicked = () => {
