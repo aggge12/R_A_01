@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -15,7 +16,7 @@ namespace LabbAPPBrew.Controllers
     public class ValuesController : ApiController
     {
 
-        LiteDatabase db = new LiteDatabase(HttpContext.Current.Server.MapPath("~/App_Data/MyData.db"));
+        LiteDatabase db = new LiteDatabase(HttpContext.Current.Server.MapPath("~/MyData.db"));
 
         // GET api/values
         public ProductService.Product GetProduct(int id)
@@ -37,20 +38,28 @@ namespace LabbAPPBrew.Controllers
         [HttpGet]
         public HttpStatusCode SaveNew(int userid, int productid)
         {
-            var favorites = db.GetCollection<Favorites>("favorites");
-            Favorites f = new Favorites();
-            f.userid = userid;
-            f.productid = productid;
-            if (favorites.Find(x => (x.userid == userid) && (x.productid == productid)).ToList<Favorites>().Count > 0)
+            try
             {
-                return HttpStatusCode.Conflict;
-            }
-            else
-            {
-                favorites.Insert(f);
-            }
+                var favorites = db.GetCollection<Favorites>("favorites");
+                Favorites f = new Favorites();
+                f.userid = userid;
+                f.productid = productid;
+                if (favorites.Find(x => (x.userid == userid) && (x.productid == productid)).ToList<Favorites>().Count > 0)
+                {
+                    return HttpStatusCode.Conflict;
+                }
+                else
+                {
+                    favorites.Insert(f);
+                }
 
-            return HttpStatusCode.OK;
+                return HttpStatusCode.OK;
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError(e.Message);
+                return HttpStatusCode.InternalServerError;
+            }
         }
 
         // PUT api/values/5

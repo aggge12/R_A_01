@@ -20,7 +20,7 @@ export const loginUser = (uName, pWord) => {
 
   export const saveFavorite = (userid, productid) => {
     try {
-      return axios.get('http://localhost:60332/Values/SaveNew?userid='+userid+'&productid='+productid);
+      return axios.get('https://apiforindapp.azurewebsites.net/Values/SaveNew?userid='+userid+'&productid='+productid);
     } catch (error) {
       console.error(error);
     }
@@ -29,7 +29,7 @@ export const loginUser = (uName, pWord) => {
   
   export const getProduct = (id) => {
     try {
-      return axios.get('http://localhost:60332/Values/GetProduct?id='+id);
+      return axios.get('https://apiforindapp.azurewebsites.net/Values/GetProduct?id='+id);
     } catch (error) {
       console.error(error);
     }
@@ -37,7 +37,7 @@ export const loginUser = (uName, pWord) => {
 
   export const getFavorites = (id) => {
     try {
-      return axios.get('http://localhost:60332/Values/getFavorites?id='+id);
+      return axios.get('https://apiforindapp.azurewebsites.net/Values/getFavorites?id='+id);
     } catch (error) {
       console.error(error);
     }
@@ -46,7 +46,7 @@ export const loginUser = (uName, pWord) => {
 
   export const removeFavorite = (userid,productid) => {
     try {
-      return axios.get('http://localhost:60332/Values/RemoveFavorite?userid='+userid+'&productid='+productid);
+      return axios.get('https://apiforindapp.azurewebsites.net/Values/RemoveFavorite?userid='+userid+'&productid='+productid);
     } catch (error) {
       console.error(error);
     }
@@ -64,7 +64,7 @@ export const getChuckChuckles = () => {
 
 export const getCat = () => {
   try {
-    return axios.get('http://localhost:60332/Values/getCatAsync');
+    return axios.get('https://apiforindapp.azurewebsites.net/Values/getCatAsync');
   } catch (error) {
     console.error(error);
   }

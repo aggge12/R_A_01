@@ -12,12 +12,11 @@
   background-color: darkorange;
   padding: 10px;
   color: white;
-  border-bottom: black 3px solid;
-  border-top: black 3px solid;
+  border-bottom: darkgray 2px solid;
 }
 
 .App-title {
-  font-size: 2em;
+  font-family: 'Kaushan Script', cursive;
 }
 
 .App-intro {
@@ -27,6 +26,26 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.crossRotate {
+  -webkit-animation-name: a; /* Safari 4.0 - 8.0 */
+
+  animation-name: a;
+
+  -webkit-animation: a .5s linear infinite;
+  animation: a .5s linear infinite;
+}
+
+.stop {
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
+}
+
+
+@keyframes a {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(720deg); }
 }
 
 .btn-test{

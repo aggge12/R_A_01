@@ -15,6 +15,8 @@ class ApiList extends Component {
 
   componentDidMount() {
       getProducts().then((response) => {
+        console.log("response");
+        console.log(response);
         this.setState({ 
           apiResult: response.data,
       })

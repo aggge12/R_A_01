@@ -44,12 +44,12 @@ class App extends Component {
           <div>
             <header className="App-header">
             <br/>
-            <h1 className="App-title">En hemsida med drycker!</h1>
+            <h1 class="App-title" >En hemsida med drycker!</h1>
             <br/>
             {
               this.state.user !== 0 ? 
               <div>
-              <Link className="linkItem" to="/ScreenOne">Drycker</Link> 
+              <Link className="linkItem" to="/">Drycker</Link> 
               <Link className="linkItem" to="/ScreenTwo">Favoriter</Link>
               </div>
             :
@@ -67,7 +67,7 @@ class App extends Component {
             }
 
             </header>
-              <Route user={this.state.user} exact path="/ScreenOne" render={()=><ScreenOne user={this.state.user}/>} />
+              <Route user={this.state.user} exact path="/" render={()=><ScreenOne user={this.state.user}/>} />
               <Route path="/ScreenTwo" render={()=><ScreenTwo user={this.state.user}/>} />
             </div>
       </Router>

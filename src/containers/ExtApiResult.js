@@ -10,12 +10,17 @@ class ExtApiResult extends Component {
     this.state = {
       data: "",
       selected: "chuck",
+      loading: false,
     };
     this.LoadStuff("chuck");
 
   }
 
   LoadStuff = (selected) => {
+    this.setState({ 
+      selected: selected,
+      loading: true,
+    })
     console.log("loading");
     if (selected === "chuck")
     {
@@ -23,6 +28,7 @@ class ExtApiResult extends Component {
         console.log(response);
         this.setState({ 
           data: response.data,
+          loading: false,
         })
       })
     }else if (selected === "cat")
@@ -32,6 +38,7 @@ class ExtApiResult extends Component {
         response.data.value = response.data.fact;
         this.setState({ 
           data: response.data,
+          loading: false,
         })
       })
     }
@@ -44,8 +51,8 @@ class ExtApiResult extends Component {
     return (
       <div class="whiteBox">
       <div>
-        <img onClick={() => this.ButtonClicked("chuck")} src={chuck}/>
-        <img class="imageIcon" src={cat} onClick={() => this.ButtonClicked("cat")}/>
+        <img ref="chuckimg" className={"crossRotate" + (this.state.selected == "chuck" && this.state.loading ? "" : "stop") } onClick={() => this.ButtonClicked("chuck")} src={chuck}/>
+        <img ref="catimg" className={"imageIcon crossRotate" + (this.state.selected == "cat" && this.state.loading ? "" : "stop") } src={cat} onClick={() => this.ButtonClicked("cat")}/>
       </div>
         <br/>
         <p>{this.state.data.value}</p>
