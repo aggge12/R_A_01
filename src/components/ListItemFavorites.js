@@ -6,7 +6,7 @@ class ListItemFavorites extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
+            data: '',
             loading: true,
         };
     }
@@ -23,10 +23,7 @@ class ListItemFavorites extends Component {
     }
 
     componentDidUpdate() {
- 
-            console.log("this.props.data");
-            console.log(this.props.data);
-            if (this.props.data.productid !== this.state.data.id)
+            if (this.state.data && this.state.data.id && this.props.data.productid !== this.state.data.id)
             {
                 if(this.state.loading !== true)
                 {
