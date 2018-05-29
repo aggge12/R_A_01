@@ -7,6 +7,7 @@ class ListItemFavorites extends Component {
         super(props);
         this.state = {
             data: [],
+            loading: true,
         };
     }
     componentDidMount() {
@@ -16,19 +17,29 @@ class ListItemFavorites extends Component {
             console.log(response);
             this.setState({ 
             data: response.data,
+            loading: false,
             })
         })
     }
 
     componentDidUpdate() {
+ 
             console.log("this.props.data");
             console.log(this.props.data);
             if (this.props.data.productid !== this.state.data.id)
             {
+                if(this.state.loading !== true)
+                {
+                    this.setState({ 
+                        loading: true,
+                    })
+                }
+  
                 getProduct(this.props.data.productid).then((response) => {
                     console.log(response);
                     this.setState({ 
                     data: response.data,
+                    loading: false,
                     })
                 })
             }
@@ -46,6 +57,10 @@ class ListItemFavorites extends Component {
   render() {
     return (
       <div>
+        <div>
+        {this.state.loading? <i class="fas fa-spin fa-spinner"></i> : ""
+        }
+        </div>  
         <p>Namn : {this.state.data ? this.state.data.name : ""}</p>
         <p>Kategori : {this.state.data ? this.state.data.category : ""}</p>
         <p>Typ : {this.state.data ? this.state.data.type : ""}</p>

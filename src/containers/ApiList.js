@@ -9,6 +9,7 @@ class ApiList extends Component {
     this.state = {
       apiResult: [],
       page: 0,
+      loading: true,
     };
 
   }
@@ -19,6 +20,7 @@ class ApiList extends Component {
         console.log(response);
         this.setState({ 
           apiResult: response.data,
+          loading: false,
       })
     })
   }
@@ -56,6 +58,7 @@ class ApiList extends Component {
     let listObjectPerPage = 4; 
     return (
       <div className="whiteBox">
+      {this.state.loading? <i style={{fontSize: "50px"}} class="fas fa-spin fa-spinner"></i> : ""}
       {
         this.state.apiResult.map((s, index)=> {
           totalobjects++;
