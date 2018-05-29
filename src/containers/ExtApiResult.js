@@ -49,7 +49,7 @@ class ExtApiResult extends Component {
     } 
   render() {
     return (
-      <div class="whiteBox">
+      <div class="whiteBoxFullSize">
       <div>
         <img ref="chuckimg" className={"crossRotate" + (this.state.selected == "chuck" && this.state.loading ? "" : "stop") } onClick={() => this.ButtonClicked("chuck")} src={chuck}/>
         <img ref="catimg" className={"imageIcon crossRotate" + (this.state.selected == "cat" && this.state.loading ? "" : "stop") } src={cat} onClick={() => this.ButtonClicked("cat")}/>

@@ -7,14 +7,14 @@ class ScreenOne extends Component {
   render() {
     return (
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-md-12 col-lg-4">
         <br/>
           <div class="col-sm-6 center">
             <ExtApiResult/>
           </div>
         </div>
         <br/>
-        <div class="col-sm-6">
+        <div class="col-md-12 col-lg-4">
           <div class="col-sm-12">
           <br/>
             <h3>Lista med drycker!</h3>

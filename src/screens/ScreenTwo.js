@@ -54,14 +54,14 @@ CreatePaginationButtons = (listObjectPerPage, totalListed) => {
     let listObjectPerPage = 4; 
     return (
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-md-12 col-lg-4">
         <br/>
           <div class="col-sm-6 center">
             <ExtApiResult/>
           </div>
         </div>
         <br/>
-        <div class="col-sm-6">
+        <div class="col-md-12 col-lg-4">
         <br/>
         <h3>favoriter</h3>
         <br/>
