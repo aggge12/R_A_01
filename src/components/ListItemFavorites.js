@@ -46,9 +46,9 @@ class ListItemFavorites extends Component {
   render() {
     return (
       <div>
-        <p>Namn : {this.state.data.name}</p>
-        <p>Kategori : {this.state.data.category}</p>
-        <p>Typ : {this.state.data.type}</p>
+        <p>Namn : {this.state.data ? this.state.data.name : ""}</p>
+        <p>Kategori : {this.state.data ? this.state.data.category : ""}</p>
+        <p>Typ : {this.state.data ? this.state.data.type : ""}</p>
         <button class="btn btn-danger" onClick={this.ButtonClicked}>Ta bort från favoriter</button>
         <hr/>
       </div>

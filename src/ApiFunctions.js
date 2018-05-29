@@ -29,7 +29,7 @@ export const loginUser = (uName, pWord) => {
   
   export const getProduct = (id) => {
     try {
-      return axios.get('https://apiforindapp.azurewebsites.net/Values/GetProduct?id='+id);
+      return axios.get('https://finditappapi.azurewebsites.net/Product/GetProduct?id='+id);
     } catch (error) {
       console.error(error);
     }
