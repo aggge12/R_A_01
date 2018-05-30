@@ -31,12 +31,17 @@ class Login extends Component {
 
   render() {
     return (
-      <div style={{float: "right", margi: '10px'}}>
-        username
-        <input class="niceInput" onChange={this.onChangeUName} style={{margin: 10}} value={this.state.uName}></input>
-        password
-        <input class="niceInput" onChange={this.onChangePWord} style={{margin: 10}} value={this.state.pWord}></input>
-        <button class="linkItem" onClick={this.LoginClicked}>Login</button>
+
+      <div class="navbar-form navbar-right row right">
+        <div class="form-group">
+            <input class="niceInput" placeholder="Username" onChange={this.onChangeUName} style={{margin: 10}} value={this.state.uName}></input>
+        </div>
+        <div class="form-group">
+        <input class="niceInput" placeholder="Password" onChange={this.onChangePWord} style={{margin: 10}} value={this.state.pWord}></input>
+        </div>
+        <div class="form-group">
+            <button class="linkItem" onClick={this.LoginClicked}>Login</button>
+        </div>
       </div>
     );
   }

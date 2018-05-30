@@ -41,7 +41,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <div>
+          <div class="col-sm-12" style={{margin:0, padding:0}}>
             <header className="App-header">
             <br/>
             <h1 class="App-title" >En hemsida med drycker!</h1>
@@ -56,8 +56,10 @@ class App extends Component {
             ""
             }
             {this.state.user === 0 || this.state.user ==='0' ?
-            <div syle={{marginBottom:'10px'}}> 
+            <div class="row" style={{marginBottom:'10px'}}>
+            <div class="col-sm-12"> 
             <Login LoginFunction={this.login}/>
+            </div>
             <br/>
             <br/>
             </div>
@@ -67,8 +69,10 @@ class App extends Component {
             }
 
             </header>
+            <div class="col-sm-12">
               <Route user={this.state.user} exact path="/" render={()=><ScreenOne user={this.state.user}/>} />
               <Route path="/ScreenTwo" render={()=><ScreenTwo user={this.state.user}/>} />
+            </div>
             </div>
       </Router>
         
